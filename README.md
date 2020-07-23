@@ -34,5 +34,41 @@
 ## $ npm run buildrun
 ## $ npm run dev
 
+## Prepare MongoDB 
+## For this project, the db is created with docker
+
+## Option1: Create a docker volume and append to docker mongo container
+
+## Create Docker Volume
+# $ docker volume create mongo-volume
+
+## Create the docker mongo container and add the docker volume
+# $ docker run -d --name dbmongo -p 27017:27017 --mount src=mongo-volume,dst=/data/db  mongo
 
 
+## Option2: Create a docker mongo container and add an external volume
+# $ docker run -d --name dbmongo -p 27017:27017 -v ${PWD}/mongo-data:/data/db  mongo
+
+## Check the database, enter in conteiner , iterative mode to use bash
+# $ docker exec -it dbmongo bash
+
+# we enter in container in root mode, execute mongo command
+# root@[ID_GENERATED_BY_DOCER]:/# mongo
+
+# in the prompt of mongo check the databases
+# > show dbs;
+
+## To stop the database
+# $ docker stop dbmongo
+
+## To star the database
+# $ docker start dbmongo
+
+## To restart the database
+## $ docker restart dbmongo
+
+## to see and follow the logs
+# $ docker logs dbmongo -f
+
+## to force to remove all container (BE CAREFUL)
+# $ docker rm -f $(docker ps -aq)
