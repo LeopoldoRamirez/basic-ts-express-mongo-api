@@ -1,5 +1,6 @@
 import express from "express";
 import productRoutes from "./routes/product.routes";
+import "./database";
 
 export const init =  async ()=>{
     const app = express();
