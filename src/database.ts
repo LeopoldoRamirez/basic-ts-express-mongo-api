@@ -1,6 +1,15 @@
 import mongoose from "mongoose";
 
-mongoose.connect('mongodb://localhost/ts-api-db',{
+import { mongoDefault, mongoHost } from "./config";
+
+const connectionParameters =[
+    'mongodb://', mongoHost, '/' ,mongoDefault
+];
+
+//'mongodb://localhost/ts-api-db'
+const strConnection = connectionParameters.join('');
+
+mongoose.connect( strConnection, {
     useUnifiedTopology: true,
     useNewUrlParser: true
 })

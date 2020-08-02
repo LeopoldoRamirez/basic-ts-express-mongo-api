@@ -1,5 +1,7 @@
+import { appPort } from "./config";
 import express from "express";
-import productRoutes from "./routes/product.routes";
+import router from "./routes/index.routes";
+
 import "./database";
 
 export const init =  async ()=>{
@@ -9,12 +11,10 @@ export const init =  async ()=>{
     app.use( express.json() );
     app.use( express.urlencoded({ extended:false }) );
     
-    app.use( productRoutes );
+    //Routers
+    app.use( router );
 
-    await app.listen(3000);
+    await app.listen(appPort);
 
-    console.log('listen in port 3000'); 
+    console.log(`Listening on port ${appPort}`); 
 }
-
-
-

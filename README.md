@@ -6,6 +6,7 @@
 ## add project dependencies
 ## express: 
 ## mongoose:
+## dotenv
 # $ npm i express mongoose
 
 ## add development dependencies
@@ -14,6 +15,8 @@
 ## @types/node:
 ## @types/express:
 ## @types/mongoose:
+## @types/dotenv:
+## tsc-watch:
 # $ npm i nodemon typescript @types/node @types/express @types/mongoose  -D
 
 ## configure typescript configuration file
