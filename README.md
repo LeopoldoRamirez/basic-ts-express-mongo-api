@@ -75,3 +75,18 @@
 
 ## to force to remove all container (BE CAREFUL)
 # $ docker rm -f $(docker ps -aq)
+
+
+## build image
+# $ docker build -t ts-mongo-api .
+
+## run our image
+# $ docker run -d --name api02 -p 8085:3000 --env-file development/env_file  ts-mongo-api   
+
+## the content of env_file
+
+APPLICATION_PORT=[APPLICATION_PORT]
+
+MONGODB_HOST=[HOST_IP_DATABASE]
+
+MONGODB_DEFAULT=[MONGO_DATABASE]

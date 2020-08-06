@@ -6,7 +6,7 @@ const connectionParameters =[
     'mongodb://', mongoHost, '/' ,mongoDefault
 ];
 
-//'mongodb://localhost/ts-api-db'
+// 'mongodb://DATABASE_HOST/DEFAULT_DB_NAME'
 const strConnection = connectionParameters.join('');
 
 mongoose.connect( strConnection, {
